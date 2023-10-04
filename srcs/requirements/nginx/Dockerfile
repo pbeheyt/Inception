@@ -1,38 +1,38 @@
-# Utilisation d'une image Debian comme base
+# Use a Debian image as the base
 FROM debian:stable-slim
 
-# Mise à jour des paquets
+# Update package repositories and upgrade installed packages
 RUN apt update && apt upgrade -y
 
-# Installation de Nginx
+# Install Nginx
 RUN apt install -y nginx
 
-# Création d'un répertoire pour les certificats SSL
+# Create a directory for SSL certificates
 RUN mkdir -p /etc/nginx/ssl
 
-# Installation de l'outil OpenSSL
+# Install the OpenSSL tool
 RUN apt install -y openssl
 
-# Génération du certificat SSL (sans mot de passe)
+# Generate an SSL certificate (without a password)
 RUN openssl req -x509 -nodes \
     -out /etc/nginx/ssl/inception.crt \
     -keyout /etc/nginx/ssl/inception.key \
     -subj "/C=FR/ST=IDF/L=Paris/O=42/OU=42/CN=pbeheyt.42.fr/UID=pbeheyt"
 
-# Création d'un répertoire pour les fichiers de configuration
+# Create a directory for configuration files
 RUN mkdir -p /var/run/nginx
 
-# Copie du fichier de configuration personnalisé
+# Copy the custom configuration file
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 
-# Modification des permissions du répertoire racine du site web
+# Modify permissions for the root directory of the website
 RUN chmod 755 /var/www/html
 
-# Attribution des permissions à l'utilisateur www-data
+# Assign permissions to the www-data user
 RUN chown -R www-data:www-data /var/www/html
 
-# Exposer le port 443 pour les connexions HTTPS
+# Expose port 443 for HTTPS connections
 EXPOSE 443
 
-# Commande pour démarrer NGINX en mode démon
+# Command to start NGINX in daemon mode
 CMD ["nginx", "-g", "daemon off;"]

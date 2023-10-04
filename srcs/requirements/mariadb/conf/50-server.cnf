@@ -1,0 +1,18 @@
+# MariaDB configuration file for the mysqld process
+
+[mysqld]
+
+# Data directory where MariaDB stores its databases
+datadir = /var/lib/mysql
+
+# Socket file used for local client-server communication
+socket  = /run/mysqld/mysqld.sock
+
+# Listen on all available network interfaces (wildcard) for incoming connections
+bind_address = *
+
+# Port number to listen on for MySQL/MariaDB connections
+port = 3306
+
+# User under which the MariaDB process runs
+user = mysql
