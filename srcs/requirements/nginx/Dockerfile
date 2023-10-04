@@ -25,8 +25,14 @@ RUN mkdir -p /var/run/nginx
 # Copie du fichier de configuration personnalisé
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 
-# Expose le port 443 (seul a pouvoir etre utilisée)
+# Modification des permissions du répertoire racine du site web
+RUN chmod 755 /var/www/html
+
+# Attribution des permissions à l'utilisateur www-data
+RUN chown -R www-data:www-data /var/www/html
+
+# Exposer le port 443 pour les connexions HTTPS
 EXPOSE 443
 
-# Commande pour démarrer NGINX
+# Commande pour démarrer NGINX en mode démon
 CMD ["nginx", "-g", "daemon off;"]
