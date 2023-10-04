@@ -1,5 +1,5 @@
-# Use a Debian stable-slim image as the base
-FROM debian:stable-slim
+# Use a Debian buster image as the base
+FROM debian:buster
 
 # Update the package repositories and upgrade installed packages (-y for automatic yes to prompts)
 RUN apt update && apt upgrade -y
