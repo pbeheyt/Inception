@@ -16,8 +16,8 @@ wp core install --allow-root\
        --path='/var/www/html'
 
 wp user create --allow-root
-       --role=author $USER1_LOGIN $USER1_MAIL\
-       --user_pass=$USER1_PASS\
+       --role=author $USER1_LOGIN $USER1_EMAIL\
+       --user_pass=$USER1_PASSWORD\
        --path='/var/www/html' >> log.txt
 
 /usr/sbin/php-fpm7.3 -F
