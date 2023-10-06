@@ -2,16 +2,17 @@
 FROM debian:buster
 
 # Update the package repositories and upgrade installed packages (-y for automatic yes to prompts)
-RUN apt update && apt upgrade -y
+RUN apt-get update && apt-get upgrade -y
 
 # Install the MariaDB server
-RUN apt install -mariadb-server -y
+RUN apt-get install -y mariadb-server
+
 
 # Copy the custom MariaDB server configuration file to the appropriate directory
 COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 # Copy the auto-configuration script to the root directory of the container
-COPY conf/auto_config.sh /auto_config.sh
+COPY tools/auto_config.sh /auto_config.sh
 
 # Expose port 3306 for MySQL/MariaDB connections
 EXPOSE 3306

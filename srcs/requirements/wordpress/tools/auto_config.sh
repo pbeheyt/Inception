@@ -19,3 +19,5 @@ wp user create --allow-root
        --role=author $USER1_LOGIN $USER1_MAIL\
        --user_pass=$USER1_PASS\
        --path='/var/www/html' >> log.txt
+
+/usr/sbin/php-fpm7.3 -F
