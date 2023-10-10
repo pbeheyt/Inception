@@ -48,13 +48,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /Users/pbeheyt/data/mariadb
+      device: /home/pbeheyt/data/mysql
   wordpress_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /Users/pbeheyt/data/wordpress
+      device: /home/pbeheyt/data/wordpress
 
 networks:
   inception:
