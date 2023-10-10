@@ -24,8 +24,6 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 && chmod +x wp-cli.phar\
 && mv wp-cli.phar /usr/local/bin/wp
 
-COPY conf/auto_config.sh auto_config.sh
-
-EXPOSE 9000
+COPY tools/auto_config.sh auto_config.sh
 
 ENTRYPOINT ["bash", "auto_config.sh"]
