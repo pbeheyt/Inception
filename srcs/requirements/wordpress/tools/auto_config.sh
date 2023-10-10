@@ -20,4 +20,8 @@ wp user create --allow-root
        --user_pass=$USER1_PASSWORD\
        --path='/var/www/html' >> log.txt
 
+if [ ! -d /run/php ]; then
+    mkdir ./run/php
+fi
+
 /usr/sbin/php-fpm7.3 -F
