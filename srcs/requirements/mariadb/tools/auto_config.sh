@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Start the MySQL service
 service mysql start;
 
