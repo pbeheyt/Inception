@@ -30,7 +30,7 @@ services:
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress
-    restart: always
+    restart: on-failure
     depends_on:
       - mariadb
     volumes:
@@ -48,13 +48,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/pbeheyt/Data/mariadb
+      device: /home/pbeheyt/data/mariadb
   wordpress_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/pbeheyt/Data/wordpress
+      device: /home/pbeheyt/data/wordpress
 
 networks:
   inception:

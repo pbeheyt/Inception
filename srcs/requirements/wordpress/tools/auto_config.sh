@@ -6,8 +6,11 @@ sleep 10
 # sed -i "s/localhost/$MYSQL_HOSTNAME/g" wp-config-sample.php
 # sed -i "s/database_name_here/$MYSQL_DATABASE/g" wp-config-sample.php
 
+cd /var/www/wordpress
+
 # cp wp-config-sample.php wp-config.php
 
+if [ ! -e /var/www/wordpress/wp-config.php ]; then
 wp config create --allow-root \
     --dbname=$MYSQL_DATABASE \
 	--dbuser=$MYSQL_USER \
@@ -27,9 +30,10 @@ wp user create --allow-root \
     --role=author "$USER1_LOGIN" "$USER1_EMAIL" \
     --user_pass="$USER1_PASSWORD" \
     --path='/var/www/wordpress' >> log.txt
+fi
 
 if [ ! -d /run/php ]; then
     mkdir -p /run/php
 fi
 
-/usr/sbin/php-fpm7.3 -F
+/usr/sbin/php-fpm8.2 -F
