@@ -1,14 +1,7 @@
 #!/bin/bash
 sleep 10
 
-# sed -i "s/username_here/$MYSQL_USER/g" wp-config-sample.php
-# sed -i "s/password_here/$MYSQL_PASSWORD/g" wp-config-sample.php
-# sed -i "s/localhost/$MYSQL_HOSTNAME/g" wp-config-sample.php
-# sed -i "s/database_name_here/$MYSQL_DATABASE/g" wp-config-sample.php
-
 cd /var/www/wordpress
-
-# cp wp-config-sample.php wp-config.php
 
 if [ ! -e /var/www/wordpress/wp-config.php ]; then
 wp config create --allow-root \

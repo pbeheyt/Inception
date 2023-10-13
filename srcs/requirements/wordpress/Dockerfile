@@ -2,10 +2,10 @@ FROM debian:bookworm
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get -y install wget curl
+RUN apt-get -y install wget
 
 #install wordpress
-RUN wget https://fr.wordpress.org/wordpress-6.0-fr_FR.tar.gz -P /var/www\
+RUN wget https://fr.wordpress.org/wordpress-6.0-fr_FR.tar.gz -P /var/www \
 && cd /var/www && tar -xzf wordpress-6.0-fr_FR.tar.gz && rm wordpress-6.0-fr_FR.tar.gz
 
 RUN	chown -R root:root /var/www/wordpress
@@ -23,7 +23,7 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 && chmod +x wp-cli.phar \
 && mv wp-cli.phar /usr/local/bin/wp
 
-COPY conf/homepage.html /var/www/html/
+COPY conf/homepage.html /var/www/wordpress/
 
 COPY tools/auto_config.sh .
 

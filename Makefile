@@ -1,6 +1,9 @@
 all:
 	sudo docker compose -f ./srcs/docker-compose.yml up -d
 
+term:
+	sudo docker compose -f ./srcs/docker-compose.yml up
+
 clean:
 	sudo docker compose -f ./srcs/docker-compose.yml down --rmi all -v
 	sudo docker system prune -a
