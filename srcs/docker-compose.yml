@@ -61,14 +61,12 @@ services:
       - wordpress_data:/var/www/wordpress
     env_file:
       - .env
-      # - FTP_USR=${FTP_USR} # chargé depuis .env
-      # - FTP_PWD=${FTP_PWD} # chargé depuis .env
     networks:
       - inception
     ports:
-      - 20:20 # port pour la connexion de données FTP active
-      - 21:21 # port pour les commandes FTP
-      - 21100-21110:21100-21110 # ports pour mode passif FTP 
+      - 20:20 
+      - 21:21 
+      - 21100-21110:21100-21110
 
 volumes:
   mariadb_data:
