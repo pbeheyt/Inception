@@ -8,4 +8,4 @@ COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d
 
 COPY tools/auto_config.sh .
 
-ENTRYPOINT ["bash", "auto_config.sh"]
+CMD ["bash", "auto_config.sh"]

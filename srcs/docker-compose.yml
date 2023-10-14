@@ -40,7 +40,18 @@ services:
     networks:
       - inception
     expose:
-      - 9000     
+      - 9000
+
+  redis:
+    container_name: redis
+    build: ./requirements/bonus/redis
+    restart: always
+    depends_on:
+      - wordpress
+    networks:
+      - inception
+    ports:
+      - 6379:6379
 
 volumes:
   mariadb_data:

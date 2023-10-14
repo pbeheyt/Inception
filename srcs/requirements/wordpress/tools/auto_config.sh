@@ -23,6 +23,15 @@ wp user create --allow-root \
     --role=author "$USER1_LOGIN" "$USER1_EMAIL" \
     --user_pass="$USER1_PASSWORD" \
     --path='/var/www/wordpress' >> log.txt
+
+#redis
+wp config set WP_REDIS_HOST redis --allow-root
+wp config set WP_REDIS_PORT 6379 --raw --allow-root
+wp config set WP_CACHE_KEY_SALT $DOMAIN_NAME --allow-root
+wp config set WP_REDIS_CLIENT phpredis --allow-root
+wp plugin install redis-cache --activate --allow-root
+wp plugin update --all --allow-root
+wp redis enable --allow-root
 fi
 
 if [ ! -d /run/php ]; then

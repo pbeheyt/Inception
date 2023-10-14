@@ -17,6 +17,12 @@ php-fpm \
 php-mysql \
 mariadb-client
 
+#install redis bonus
+RUN apt-get install -y \
+redis \
+php-redis \
+php-cli
+
 COPY ./conf/php.conf /etc/php/8.2/fpm/pool.d/www.conf
 
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
@@ -27,4 +33,4 @@ COPY conf/homepage.html /var/www/wordpress/
 
 COPY tools/auto_config.sh .
 
-ENTRYPOINT ["bash", "auto_config.sh"]
+CMD ["bash", "auto_config.sh"]
