@@ -6,7 +6,7 @@ services:
     build: ./requirements/nginx
     restart: always
     depends_on:
-      - wordpress
+      - redis
     volumes:
       - wordpress_data:/var/www/wordpress
     networks:
@@ -67,6 +67,17 @@ services:
       - 20:20 
       - 21:21 
       - 21100-21110:21100-21110
+
+  adminer:
+    container_name: adminer
+    build: ./requirements/bonus/adminer
+    restart: always
+    depends_on:
+      - mariadb
+    networks:
+      - inception
+    expose:
+     - 9000
 
 volumes:
   mariadb_data:

@@ -24,7 +24,7 @@ wp user create --allow-root \
     --user_pass="$USER1_PASSWORD" \
     --path='/var/www/wordpress' >> log.txt
 
-#redis
+#redis bonus
 wp config set WP_REDIS_HOST redis --allow-root
 wp config set WP_REDIS_PORT 6379 --raw --allow-root
 wp config set WP_CACHE_KEY_SALT $DOMAIN_NAME --allow-root
