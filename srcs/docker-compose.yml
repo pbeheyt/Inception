@@ -53,6 +53,23 @@ services:
     ports:
       - 6379:6379
 
+  ftp:
+    container_name: ftp
+    build: ./requirements/bonus/ftp
+    restart: always
+    volumes:
+      - wordpress_data:/var/www/wordpress
+    env_file:
+      - .env
+      # - FTP_USR=${FTP_USR} # chargé depuis .env
+      # - FTP_PWD=${FTP_PWD} # chargé depuis .env
+    networks:
+      - inception
+    ports:
+      - 20:20 # port pour la connexion de données FTP active
+      - 21:21 # port pour les commandes FTP
+      - 21100-21110:21100-21110 # ports pour mode passif FTP 
+
 volumes:
   mariadb_data:
     driver: local
