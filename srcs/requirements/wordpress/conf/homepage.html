@@ -5,36 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inception Project</title>
     <style>
-        /* Add your CSS styles here */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(to right, #333, #666);
+            color: #fff;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-weight: 600;
+        }
+        p {
+            font-size: 1.4rem;
+            margin-top: 10px;
+        }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-top: 20px;
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            font-size: 1.6rem;
+            margin-top: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to Inception Project</h1>
-        <nav>
-            <ul>
-                <li><a href="#section1">Section 1</a></li>
-                <li><a href="#section2">Section 2</a></li>
-                <li><a href="#section3">Section 3</a></li>
-            </ul>
-        </nav>
+        <h1>Inception</h1>
+        <p>42 Project</p>
     </header>
     <main>
-        <section id="section1">
-            <h2>Section 1</h2>
-            <p>This is the content of Section 1.</p>
-        </section>
-        <section id="section2">
-            <h2>Section 2</h2>
-            <p>This is the content of Section 2.</p>
-        </section>
-        <section id="section3">
-            <h2>Section 3</h2>
-            <p>This is the content of Section 3.</p>
-        </section>
+        <h2>Summary</h2>
+        <p>The project involves setting up a Docker infrastructure composed of NGINX, WordPress with php-fpm, and MariaDB containers, using custom Dockerfiles, environment variables for configuration, and ensuring security and handling restarts in case of crashes.</p>
+        </ul>
     </main>
     <footer>
-        <p>&copy; 2023 Inception Project</p>
+        <p>Designed by pbeheyt</p>
     </footer>
 </body>
 </html>
