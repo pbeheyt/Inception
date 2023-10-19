@@ -14,6 +14,10 @@ fclean: clean
 	sudo rm -rf /home/pbeheyt/data/mariadb/*; \
 	fi;
 
+	@if [ -d "/home/pbeheyt/data/portainer" ]; then \
+	sudo rm -rf /home/pbeheyt/data/portainer/*; \
+	fi;
+
 re: fclean all
 
 .PHONY: all, clean, fclean, re
