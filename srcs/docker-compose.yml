@@ -78,6 +78,20 @@ services:
       - inception
     expose:
      - 9000
+  
+  portainer:
+    container_name: portainer
+    build: ./requirements/bonus/portainer
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    depends_on:
+      - wordpress
+    networks:
+      - inception
+    ports:
+      - 9443:9443
 
 volumes:
   mariadb_data:
@@ -92,6 +106,12 @@ volumes:
       type: none
       o: bind
       device: /home/pbeheyt/data/wordpress
+  portainer_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/pbeheyt/data/portainer
 
 networks:
   inception:
