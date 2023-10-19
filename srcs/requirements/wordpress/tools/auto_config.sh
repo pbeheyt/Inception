@@ -14,7 +14,7 @@ wp config create --allow-root \
 wp core install --allow-root \
     --url="$DOMAIN_NAME" \
     --title="$SITE_TITLE" \
-    --admin_user="$ADMIN_USER" \
+    --admin_user="$ADMIN_LOGIN" \
     --admin_password="$ADMIN_PASSWORD" \
     --admin_email="$ADMIN_EMAIL" \
     --path='/var/www/wordpress'
