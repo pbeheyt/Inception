@@ -1,11 +1,9 @@
 FROM debian:bookworm
 
-RUN apt-get update && apt-get install -y wget
+RUN apt-get update && apt-get install -y wget ca-certificates
 
-# Define an environment variable for Portainer's home directory
 ENV PORTAINER_HOME /var/lib/portainer
 
-# Create the Portainer home directory and set permissions
 RUN mkdir -p $PORTAINER_HOME && \
     addgroup portainer && \
     adduser --system --disabled-login --no-create-home --ingroup portainer --home $PORTAINER_HOME --shell /bin/sh portainer && \
