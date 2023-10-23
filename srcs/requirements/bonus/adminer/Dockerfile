@@ -3,10 +3,10 @@ FROM debian:bookworm
 RUN apt-get update && apt-get upgrade -y
 
 RUN apt-get install -y \
-php8.2 \
-php-fpm \
-php-mysqli \
-wget
+	php8.2 \
+	php-fpm \
+	php-mysqli \
+	wget
 
 RUN mkdir -p /var/www/html
 
